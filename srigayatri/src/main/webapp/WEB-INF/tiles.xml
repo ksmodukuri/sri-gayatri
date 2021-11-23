@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+        
+<tiles-definitions>  
+ 
+    <!-- Base Define -->
+    <definition name="base.definition" 
+        template="/WEB-INF/layouts/classic.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="body" value="" />  
+
+    </definition>
+ 
+ 	<definition name="base.public.definition" 
+        template="/WEB-INF/layouts/public.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/basefragments/_srigayatriHeader.jsp" />
+        <put-attribute name="body" value="" />
+    </definition>
+    
+    <definition name="newAdmission" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/newAdmission.jsp" />  
+    </definition>
+    
+    <definition name="feesPayment" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/feesPayment.jsp" />  
+    </definition> 
+    
+    <definition name="dashboard" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/dashboard.jsp" />  
+    </definition> 
+    
+    <definition name="studentsInfoTable" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/studentsInfoTable.jsp" />  
+    </definition> 
+    
+    <definition name="updateFeesDetails" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/updateFeesDetails.jsp" />  
+    </definition> 
+    
+     <definition name="updateStudentDetails" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/updateStudentDetails.jsp" />  
+    </definition>
+    
+    <definition name="success" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/success.jsp" />  
+    </definition>
+    
+    <definition name="studentsFeesInfoTable" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/studentsFeesInfoTable.jsp" />  
+    </definition>
+    
+    <definition name="marksEnter" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/marksEnter.jsp" />  
+    </definition>
+    
+    <definition name="viewMarksPage" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/viewMarks.jsp" />  
+    </definition>
+    
+    <definition name="updateMarksPage" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/updateMarks.jsp" />  
+    </definition>
+    
+    <definition name="printBalance" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/printBalance.jsp" />  
+    </definition>
+    
+    <definition name="printTotalFees" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/printTotalFees.jsp" />  
+    </definition>
+    
+    <definition name="promotingStudents" extends="base.public.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/promotingStudents.jsp" />  
+    </definition>
+</tiles-definitions> 

@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE")
+    }
+}
+
+
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+group = 'srigayatri'
+
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+bootWar{
+    baseName = 'srigayatri'
+    version =  '1.0.0'
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
+    compile("org.apache.tomcat.embed:tomcat-embed-jasper");
+    compile("javax.servlet:jstl");    
+    compile("org.apache.tiles:tiles-api:3.0.8");
+    compile("org.apache.tiles:tiles-core:3.0.8");
+    compile("org.apache.tiles:tiles-servlet:3.0.8");
+    compile("org.apache.tiles:tiles-jsp:3.0.8");
+    compile("org.apache.tiles:tiles-request-api:1.0.7");
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly ("mysql:mysql-connector-java")
+    compile ("org.apache.commons:commons-jexl3:3.1")
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+    testCompile("junit:junit")
+    
+}
+
+test {
+	useJUnitPlatform()
+}
