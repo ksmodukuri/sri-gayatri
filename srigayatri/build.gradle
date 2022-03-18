@@ -1,53 +1,52 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE")
-    }
+plugins {
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
 }
 
-
-apply plugin: 'war'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-group = 'srigayatri'
-
-sourceCompatibility = '1.8'
+group = 'com.katrenikona'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
 }
 
-bootWar{
-    baseName = 'srigayatri'
-    version =  '1.0.0'
-}
-
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-tomcat")
-    compile("org.apache.tomcat.embed:tomcat-embed-jasper");
-    compile("javax.servlet:jstl");    
-    compile("org.apache.tiles:tiles-api:3.0.8");
-    compile("org.apache.tiles:tiles-core:3.0.8");
-    compile("org.apache.tiles:tiles-servlet:3.0.8");
-    compile("org.apache.tiles:tiles-jsp:3.0.8");
-    compile("org.apache.tiles:tiles-request-api:1.0.7");
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly ("mysql:mysql-connector-java")
-    compile ("org.apache.commons:commons-jexl3:3.1")
-    compile group: 'commons-io', name: 'commons-io', version: '2.6'
-    compile group: 'org.apache.poi', name: 'poi', version: '4.1.2'
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
-    testCompile("junit:junit")
-    
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.4'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.6.4'
+	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '10.0.18'
+	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-api
+	implementation group: 'org.apache.tiles', name: 'tiles-api', version: '3.0.8'
+	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-core
+	implementation group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.8'
+	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet
+	implementation group: 'org.apache.tiles', name: 'tiles-servlet', version: '3.0.8'
+	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp
+	implementation group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.8'
+	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-request-api
+	implementation group: 'org.apache.tiles', name: 'tiles-request-api', version: '1.0.7'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.4'
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-jexl
+	implementation group: 'org.apache.commons', name: 'commons-jexl', version: '2.1.1'
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.1'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.1'
+	
 }
 
-test {
+tasks.named('test') {
 	useJUnitPlatform()
 }
