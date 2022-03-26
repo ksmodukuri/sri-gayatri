@@ -64,12 +64,12 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_fname" style="float: left">Student
 						Admission Number</label> <input type="text" class="form-control"
-						id="admissionNumber" name="admissionNumber" value="" />
+						id="admissionNumber" name="admissionNumber" value="" required/>
 				</div>
 				<div class="col">
 					<label for="personal_lname" style="float: left">Student
 						Date Of Joining</label> <input type="text" class="form-control"
-						id="dateOfJoining" name="dateOfJoining" value="" />
+						id="dateOfJoining" name="dateOfJoining" value="" required/>
 				</div>
 			</div>
 			<br/>
@@ -77,12 +77,12 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_fname" style="float: left">Student
 						First Name</label> <input type="text" class="form-control" id="studentFirstName"
-						name="studentFirstName" value="" />
+						name="studentFirstName" value="" required/>
 				</div>
 				<div class="col">
 					<label for="personal_lname" style="float: left">Student
 						Last Name</label> <input type="text" class="form-control" id="studentLastName"
-						name="studentLastName" value="" />
+						name="studentLastName" value="" required/>
 				</div>
 			</div>
 			<br/>
@@ -90,19 +90,19 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_email" style="float: left">Student
 						Aadhar</label> <input type="text" class="form-control" id="aadhar"
-						name="aadhar" value="" />
+						name="aadhar" value="" required/>
 				</div>
 				<div class="col">
 					<label for="personal_phoneNumber" style="float: left">Student
 						DOB</label> <input type="text" class="form-control" id="dob"
-						name="dob" value="" />
+						name="dob" value="" required/>
 				</div>
 			</div>
 			</br>
 			<div class="row">
 				<div class="col">
 					<label for="personal_email" style="float: left">Student
-						Gender</label> <select id="gender" name="gender" class="form-control">
+						Gender</label> <select id="gender" name="gender" class="form-control" required>
 						<option value="">-Select-</option>
 						<option value="F">Female</option>
 						<option value="M">Male</option>
@@ -111,7 +111,7 @@ $(document).ready(function(){
 				</div>
 				<div class="col">
 					<label for="personal_phoneNumber" style="float: left">Student
-						Class Admission</label><input class="form-control" type="text" id="std" name="std"/>
+						Class Admission</label><input class="form-control" type="text" id="std" name="std" required/>
 				</div>
 			</div>
 			<br/>
@@ -119,7 +119,7 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_email" style="float: left">Mole</label> 
 					<input type="text" class="form-control"
-						id="mole1" name="mole1" value="" />
+						id="mole1" name="mole1" value="" required/>
 				</div>
 			</div>
 			<br />
@@ -127,7 +127,7 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_email" style="float: left">Mole</label> 
 					<input type="text" class="form-control"
-						id="mole2" name="mole2" value="" />
+						id="mole2" name="mole2" value="" required/>
 				</div>
 			</div>
 			<br />
@@ -135,7 +135,7 @@ $(document).ready(function(){
 				<div class="col">
 					<label for="personal_email" style="float: left">Student
 						Previous School</label> <input type="text" class="form-control"
-						id="previousSchoolName" name="previousSchoolName" value="" />
+						id="previousSchoolName" name="previousSchoolName" value="" required/>
 				</div>
 			</div>
 			<br />
@@ -153,48 +153,48 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col">
 					<label>Admission Fees</label> <input class="form-control" id="admissionFees"
-						name="admissionFees" type="number"/>
+						name="admissionFees" type="tel" required/>
 				</div>
 				<div class="col">
 					<label>Term I</label> <input class="form-control"
-						id="termOne" name="termOne" type="number"/> 
+						id="termOne" name="termOne" type="tel" required/> 
 				</div> 
 			</div>
 			<br/>
 			<div class="row">
 				<div class="col">
 					<label>Term II</label> <input class="form-control" id="termTwo"
-						name="termTwo" type="number"/>
+						name="termTwo" type="number" required/>
 				</div>
 				<div class="col">
 					<label>Term III</label> <input class="form-control"
-						id="termThree" name="termThree" type="number"/>
+						id="termThree" name="termThree" type="number" required/>
 				</div>
 			</div>
 			<br/>
 			<div class="row">
 				<div class="col">
 					<label>Term IV</label> <input class="form-control" id="termFour"
-						name="termFour" type="number" />
+						name="termFour" type="number" required/>
 				</div>
 				<div class="col">
 					<label>Transportation Fees</label> <input class="form-control"
-						id="transportationFees" name="transportationFees" type="number"/>
+						id="transportationFees" name="transportationFees" type="number" required/>
 				</div>
 			</div>
 			<br />
 			<div class="row">
 				<div class="col">
 					<label>Exam Fees</label> <input class="form-control" id="examFees"
-						name="examFees" type="number"/>
+						name="examFees" type="number" required/>
 				</div>
 				<div class="col">
 					<label>Other</label> <input class="form-control" id="otherFees"
-						name="otherFees" type="number"/>
+						name="otherFees" type="number" required/>
 				</div>
 				<div class="col">
 					<label>Total Fees</label> <input class="form-control" id="totalFees"
-						name="totalFees" type="number"/>
+						name="totalFees" type="number" required/>
 				</div>
 			</div>
 			<br/>
@@ -212,40 +212,40 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col">
 					<label>Father's Name</label> <input class="form-control" id="fatherName"
-						name="fatherName" />
+						name="fatherName" required/>
 				</div>
 				<div class="col">
 					<label>Father Aadhar Number</label> <input class="form-control"
-						id="fatherAadhar" name="fatherAadhar" />
+						id="fatherAadhar" name="fatherAadhar" required/>
 				</div>
 			</div>
 			<br/>
 			<div class="row">
 				<div class="col">
 					<label>Mother's Name</label> <input class="form-control" id="motherName"
-						name="motherName" />
+						name="motherName" required/>
 				</div>
 				<div class="col">
 					<label>Mother Aadhar Number</label> <input class="form-control"
-						id="motherAadhar" name="motherAadhar" />
+						id="motherAadhar" name="motherAadhar" required/>
 				</div>
 			</div>
 			<br/>
 			<div class="row">
 				<div class="col">
 					<label>Ration Card Number</label> <input class="form-control" id="rationCardNumber"
-						name="rationCardNumber" />
+						name="rationCardNumber" required/>
 				</div>
 				<div class="col">
 					<label>Mobile Number</label> <input class="form-control"
-						id="mobileNumber" name="mobileNumber" />
+						id="mobileNumber" name="mobileNumber" required/>
 				</div>
 			</div>
 			<br />
 			<div class="row">
 				<div class="col">
 					<label>Address Line 1</label> <input class="form-control" id="address1"
-						name="address1" />
+						name="address1" required/>
 				</div>
 				<div class="col">
 					<label>Address Line 2</label> <input class="form-control"
@@ -260,15 +260,15 @@ $(document).ready(function(){
 			<div class="row">
 				<div class="col">
 					<label>Religion</label> <input class="form-control" id="religion"
-						name="religion" />
+						name="religion" required/>
 				</div>
 				<div class="col">
 					<label>Caste</label> <input class="form-control"
-						id="caste" name="caste" />
+						id="caste" name="caste" required/>
 				</div>
 				<div class="col">
 					<label>Category</label> <input class="form-control"
-						id="category" name="category" />
+						id="category" name="category" required/>
 				</div>
 			</div>
 			<br/>

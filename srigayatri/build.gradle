@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.katrenikona'
@@ -12,6 +13,7 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -21,17 +23,14 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.6.4'
 	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
-	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '10.0.18'
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.46'
 	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-api
-	implementation group: 'org.apache.tiles', name: 'tiles-api', version: '3.0.8'
-	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-core
-	implementation group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.8'
-	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet
-	implementation group: 'org.apache.tiles', name: 'tiles-servlet', version: '3.0.8'
-	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp
-	implementation group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.8'
-	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-request-api
-	implementation group: 'org.apache.tiles', name: 'tiles-request-api', version: '1.0.7'
+	implementation("javax.servlet:jstl");    
+    implementation("org.apache.tiles:tiles-api:3.0.8");
+    implementation("org.apache.tiles:tiles-core:3.0.8");
+    implementation("org.apache.tiles:tiles-servlet:3.0.8");
+    implementation("org.apache.tiles:tiles-jsp:3.0.8");
+    implementation("org.apache.tiles:tiles-request-api:1.0.7");
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.4'
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
@@ -44,6 +43,28 @@ dependencies {
 	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.1'
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.1'
+	
+	// https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api
+	implementation group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
+
+
+	
+	// https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-spec
+	//implementation group: 'org.apache.taglibs', name: 'taglibs-standard-spec', version: '1.2.5'
+	
+	// https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl
+	//runtimeOnly group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
+	
+	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+	//compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+	
+
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.6.2'
+	
+
+	
+	//implementation files('src/main/resources/jstl-1.2.jar')
 	
 }
 

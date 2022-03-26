@@ -18,11 +18,11 @@ import com.katrenikona.srigayatri.repository.StudentRepository;
 import com.katrenikona.srigayatri.service.MarksService;
 
 @Service
-public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
-	
+public class MarksServiceImpl extends BaseServiceImpl implements MarksService {
+
 	@Autowired
 	private MarksRepository marksRepository;
-	
+
 	@Autowired
 	private StudentRepository studentRepository;
 
@@ -35,7 +35,7 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 			paging = PageRequest.of(pageNumber, pageSize);
 		}
 		Page<StudentDetailsEntity> pagedResult = null;
-		
+
 		pagedResult = studentRepository.findStudentByClass(std, paging);
 		MarksData marksData = new MarksData();
 		Pagination pag = new Pagination();
@@ -43,9 +43,9 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 		System.out.println(pagedResult);
 		if (pagedResult.hasContent()) {
 			List<StudentDetailsEntity> studentsEntityList = pagedResult.getContent();
-			
+
 			for (StudentDetailsEntity studentEnt : studentsEntityList) {
-				for(MarksEntity marksEnt : studentEnt.getMarksEntity()) {
+				for (MarksEntity marksEnt : studentEnt.getMarksEntity()) {
 					Marks marks = getMarksObject(marksEnt);
 					marksData.addMarks(marks);
 				}
@@ -61,7 +61,8 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 	}
 
 	@Override
-	public MarksData getSearchStudentsMarksByAdmissionNumber(String searchByAdmnNo, Integer pageNumber, Integer pageSize, String sortBy, String asc) {
+	public MarksData getSearchStudentsMarksByAdmissionNumber(String searchByAdmnNo, Integer pageNumber,
+			Integer pageSize, String sortBy, String asc) {
 		Pageable paging = null;
 		if (asc.equals("true")) {
 			paging = PageRequest.of(pageNumber, pageSize);
@@ -69,18 +70,18 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 			paging = PageRequest.of(pageNumber, pageSize);
 		}
 		Page<StudentDetailsEntity> pagedResult = null;
-		
-		pagedResult = studentRepository.findStudentBySearch(searchByAdmnNo,paging);
-		
+
+		pagedResult = studentRepository.findStudentBySearch(searchByAdmnNo, paging);
+
 		MarksData marksData = new MarksData();
 		Pagination pag = new Pagination();
 		marksData.setPagination(pag);
 		System.out.println(pagedResult);
 		if (pagedResult.hasContent()) {
 			List<StudentDetailsEntity> studentsEntityList = pagedResult.getContent();
-			
+
 			for (StudentDetailsEntity studentEnt : studentsEntityList) {
-				for(MarksEntity marksEnt : studentEnt.getMarksEntity()) {
+				for (MarksEntity marksEnt : studentEnt.getMarksEntity()) {
 					Marks marks = getMarksObject(marksEnt);
 					marksData.addMarks(marks);
 				}
@@ -96,7 +97,8 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 	}
 
 	@Override
-	public MarksData getSearchStudentsMarksByClass(String fromClass, Integer pageNumber, Integer pageSize, String sortBy, String asc) {
+	public MarksData getSearchStudentsMarksByClass(String fromClass, Integer pageNumber, Integer pageSize,
+			String sortBy, String asc) {
 		Pageable paging = null;
 		if (asc.equals("true")) {
 			paging = PageRequest.of(pageNumber, pageSize);
@@ -104,18 +106,18 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 			paging = PageRequest.of(pageNumber, pageSize);
 		}
 		Page<StudentDetailsEntity> pagedResult = null;
-		
-		pagedResult = studentRepository.findStudentByClass(fromClass,paging);
-		
+
+		pagedResult = studentRepository.findStudentByClass(fromClass, paging);
+
 		MarksData marksData = new MarksData();
 		Pagination pag = new Pagination();
 		marksData.setPagination(pag);
 		System.out.println(pagedResult);
 		if (pagedResult.hasContent()) {
 			List<StudentDetailsEntity> studentsEntityList = pagedResult.getContent();
-			
+
 			for (StudentDetailsEntity studentEnt : studentsEntityList) {
-				for(MarksEntity marksEnt : studentEnt.getMarksEntity()) {
+				for (MarksEntity marksEnt : studentEnt.getMarksEntity()) {
 					Marks marks = getMarksObject(marksEnt);
 					marksData.addMarks(marks);
 				}
@@ -134,9 +136,9 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 	public Marks getStudentSubjects(String admnNo) {
 		StudentDetailsEntity studentEnt = studentRepository.getStudentByAdmn(admnNo);
 		Marks marksEnterObject = new Marks();
-		if(classList.contains(studentEnt.getStd())) {
+		if (studentEnt != null && classList.contains(studentEnt.getStd())) {
 			marksEnterObject.setSubjectList(subjectList);
-		}else {
+		} else {
 			marksEnterObject.setSubjectList(lkgSubjectList);
 		}
 		marksEnterObject.setExamTypeList(examTypeList);
@@ -149,34 +151,36 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 	@Override
 	public void updateMarks(Marks marksEnterObject) {
 		StudentDetailsEntity studentEnt = studentRepository.findStudentById(marksEnterObject.getStudentId());
-		for(MarksEntity marksEnt : studentEnt.getMarksEntity()) {
-			String subject = marksEnterObject.getSubject();
-			String marksEntSubject = marksEnt.getSubject();
-			if(subject.equals(marksEntSubject)) {
-				
-				marksEnt.setFA1(marksEnterObject.getfA1());
-				marksEnt.setfA1Grade(marksEnterObject.getfA1());
-			
-				marksEnt.setFA2(marksEnterObject.getfA2());
-				marksEnt.setfA2Grade(marksEnterObject.getfA2());
-			
-				marksEnt.setSA1(marksEnterObject.getsA1());
-				marksEnt.setsA1Grade(marksEnterObject.getsA1());
-			
-				marksEnt.setFA3(marksEnterObject.getfA3());
-				marksEnt.setfA3Grade(marksEnterObject.getfA3());
-			
-				marksEnt.setFA4(marksEnterObject.getfA4());
-				marksEnt.setfA4Grade(marksEnterObject.getfA4());
-				
-				marksEnt.setSA2(marksEnterObject.getsA2());
-				marksEnt.setsA2Grade(marksEnterObject.getsA2());
+		if (studentEnt != null) {
+			for (MarksEntity marksEnt : studentEnt.getMarksEntity()) {
+				String subject = marksEnterObject.getSubject();
+				String marksEntSubject = marksEnt.getSubject();
+				if (subject.equals(marksEntSubject)) {
+
+					marksEnt.setFA1(marksEnterObject.getfA1());
+					marksEnt.setfA1Grade(marksEnterObject.getfA1());
+
+					marksEnt.setFA2(marksEnterObject.getfA2());
+					marksEnt.setfA2Grade(marksEnterObject.getfA2());
+
+					marksEnt.setSA1(marksEnterObject.getsA1());
+					marksEnt.setsA1Grade(marksEnterObject.getsA1());
+
+					marksEnt.setFA3(marksEnterObject.getfA3());
+					marksEnt.setfA3Grade(marksEnterObject.getfA3());
+
+					marksEnt.setFA4(marksEnterObject.getfA4());
+					marksEnt.setfA4Grade(marksEnterObject.getfA4());
+
+					marksEnt.setSA2(marksEnterObject.getsA2());
+					marksEnt.setsA2Grade(marksEnterObject.getsA2());
+				}
+				marksRepository.save(marksEnt);
+
 			}
-			marksRepository.save(marksEnt);
-			
 		}
 	}
-	
+
 	@Override
 	public void updateMarksByMarksId(Marks marksEnterObject) {
 		MarksEntity marksEnt = marksRepository.getMarks(marksEnterObject.getMarksId());
@@ -199,7 +203,6 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 		marksEnt.setSA2(marksEnterObject.getsA2());
 		marksEnt.setsA2Grade(marksEnterObject.getsA2());
 		marksRepository.save(marksEnt);
-			
 
 	}
 
@@ -211,16 +214,16 @@ public class MarksServiceImpl extends BaseServiceImpl implements MarksService{
 		} else {
 			paging = PageRequest.of(pageNumber, pageSize);
 		}
-		Page<StudentDetailsEntity> pagedResult = studentRepository.findAll(paging); 
+		Page<StudentDetailsEntity> pagedResult = studentRepository.findAll(paging);
 		MarksData marksData = new MarksData();
 		Pagination pag = new Pagination();
 		marksData.setPagination(pag);
 		System.out.println(pagedResult);
 		if (pagedResult.hasContent()) {
 			List<StudentDetailsEntity> studentsEntityList = pagedResult.getContent();
-			
+
 			for (StudentDetailsEntity studentEnt : studentsEntityList) {
-				for(MarksEntity marksEnt : studentEnt.getMarksEntity()) {
+				for (MarksEntity marksEnt : studentEnt.getMarksEntity()) {
 					Marks marks = getMarksObject(marksEnt);
 					marksData.addMarks(marks);
 				}
