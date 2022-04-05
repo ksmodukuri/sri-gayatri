@@ -23,7 +23,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.6.4'
 	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
-	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.46'
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.60'
 	// https://mvnrepository.com/artifact/org.apache.tiles/tiles-api
 	implementation("javax.servlet:jstl");    
     implementation("org.apache.tiles:tiles-api:3.0.8");
@@ -34,7 +34,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.4'
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+	//implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.3'
+	
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-jexl
 	implementation group: 'org.apache.commons', name: 'commons-jexl', version: '2.1.1'
 	// https://mvnrepository.com/artifact/commons-io/commons-io
